@@ -5,13 +5,13 @@ export default {
   login (email, password, callback) {
     console.log(store)
     var loginParams = {
-      user: {
+      auth: {
         email: email,
         password: password
       }
     }
     console.log(loginParams)
-    Vue.$http.post('/users/api_sign_in.json', loginParams)
+    Vue.$http.post('/user_token', loginParams)
     .then(function (response) {
       store.dispatch('login')
       callback(response.data)
