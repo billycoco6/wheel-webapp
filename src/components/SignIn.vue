@@ -2,6 +2,7 @@
   <el-row :gutter="20" class='signin'>
     <el-col :span="8"><div class="grid-content"></div></el-col>
     <el-col :span="8" class='center'>
+      <h2>Wheel Spinner</h2>
       <el-form label-width="70px">
         <el-form-item label="username">
           <el-input v-model="username"></el-input>
@@ -10,7 +11,7 @@
           <el-input type='password' v-model="password"></el-input>
         </el-form-item>
         <div class="">
-          <el-button type="primary">Sign in</el-button>
+          <el-button type="primary" @click="login">Sign in</el-button>
         </div>
         <br>Not a member? <el-button type="text" @click="navigateTo('main.SignUp')">Join now</el-button>
       </el-form>
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import UsersApi from '../api/users.js'
 import router from '../router'
 
 export default {
@@ -34,6 +36,12 @@ export default {
     navigateTo (nav) {
       console.log('==== navigate ====')
       router.push({ name: nav })
+    },
+    login () {
+      console.log('methods.login')
+      UsersApi.login(this.username, this.password, function (_response) {
+        router.push({ name: 'main.Home' })
+      })
     }
   }
 }

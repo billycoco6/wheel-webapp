@@ -13,12 +13,6 @@
         <el-form-item label="E-mail">
           <el-input v-model="email"></el-input>
         </el-form-item>
-        <el-form-item label="Address">
-          <el-input type="textarea" v-model="address"></el-input>
-        </el-form-item>
-        <el-form-item label="Username">
-          <el-input v-model="username"></el-input>
-        </el-form-item>
         <el-form-item label="Password">
           <el-input type='password' v-model="password"></el-input>
         </el-form-item>
@@ -26,8 +20,8 @@
           <el-input type='password' v-model="confirmPassword"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submit">Submit</el-button>
-          <el-button>Cancel</el-button>
+          <el-button type="primary" @click="register()">Submit</el-button>
+          <el-button @click="navigateTo(main.SignIn)">Cancel</el-button>
         </el-form-item>
       </el-form>
     </el-col>
@@ -37,6 +31,7 @@
 
 <script>
 import router from '../router'
+import UsersApi from '../api/users.js'
 
 export default {
   name: 'signin',
@@ -45,8 +40,6 @@ export default {
       firstname: '',
       lastname: '',
       email: '',
-      address: '',
-      username: '',
       password: '',
       confirmPassword: ''
     }
@@ -55,6 +48,13 @@ export default {
     submit () {
       console.log('===== submit =====')
       // make an api call to store user info
+      router.push({ name: 'main.SignIn' })
+    },
+    navigateTo (nav) {
+      router.push({ name: nav })
+    },
+    register () {
+      UsersApi.signUp(this.email, this.password, this.firstname, this.lastname)
       router.push({ name: 'main.SignIn' })
     }
   }

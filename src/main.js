@@ -9,6 +9,15 @@ import 'element-ui/lib/theme-default/index.css'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
+import Axios from 'axios'
+Vue.$http = Axios
+Axios.defaults.baseURL = 'https://warm-refuge-51316.herokuapp.com'
+Axios.defaults.headers.common.Accept = 'application/json'
+Axios.defaults.withCredentials = true
+
+import userLogin from '@/api/users.js'
+userLogin.checkLoggedIn()
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
