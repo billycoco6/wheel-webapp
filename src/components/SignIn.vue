@@ -4,8 +4,8 @@
     <el-col :span="8" class='center'>
       <h2>Wheel Spinner</h2>
       <el-form label-width="70px">
-        <el-form-item label="username">
-          <el-input v-model="username"></el-input>
+        <el-form-item label="email">
+          <el-input v-model="email"></el-input>
         </el-form-item>
         <el-form-item label="password">
           <el-input type='password' v-model="password"></el-input>
@@ -28,7 +28,7 @@ export default {
   name: 'signin',
   data () {
     return {
-      username: '',
+      email: '',
       password: ''
     }
   },
@@ -39,7 +39,7 @@ export default {
     },
     login () {
       console.log('methods.login')
-      UsersApi.login(this.username, this.password, function (_response) {
+      UsersApi.login(this.email, this.password, function (_response) {
         router.push({ name: 'main.Home' })
       })
     }

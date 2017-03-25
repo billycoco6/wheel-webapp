@@ -11,12 +11,12 @@ Vue.config.productionTip = false
 
 import Axios from 'axios'
 Vue.$http = Axios
-Axios.defaults.baseURL = 'https://warm-refuge-51316.herokuapp.com'
+Axios.defaults.baseURL = 'https://webapp-project-server.herokuapp.com'
 Axios.defaults.headers.common.Accept = 'application/json'
 Axios.defaults.withCredentials = true
 
-import userLogin from '@/api/users.js'
-userLogin.checkLoggedIn()
+// import userLogin from '@/api/users.js'
+// userLogin.checkLoggedIn()
 
 /* eslint-disable no-new */
 new Vue({

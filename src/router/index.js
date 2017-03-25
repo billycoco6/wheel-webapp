@@ -5,8 +5,8 @@ import SignUp from '@/components/SignUp'
 import Home from '@/components/Home'
 import Men from '@/components/Men'
 import Women from '@/components/Women'
-import Fashion from '@/components/Fashion'
-
+import Category from '@/components/Category'
+import Spinning from '@/components/Spinning'
 Vue.use(Router)
 
 export default new Router({
@@ -37,9 +37,14 @@ export default new Router({
       component: Women
     },
     {
-      path: '/fashion',
-      name: 'Fashion',
-      component: Fashion
+      path: '/category',
+      name: 'main.Category',
+      component: Category
+    },
+    {
+      path: '/spinning',
+      name: 'main.Spinning',
+      component: Spinning
     }
   ]
 })

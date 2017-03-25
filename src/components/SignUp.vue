@@ -34,7 +34,7 @@ import router from '../router'
 import UsersApi from '../api/users.js'
 
 export default {
-  name: 'signin',
+  name: 'signun',
   data () {
     return {
       firstname: '',
