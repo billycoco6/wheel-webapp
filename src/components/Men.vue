@@ -3,11 +3,11 @@
     <el-row>
       <el-col :span="8" v-for="item in items">
         <el-card :body-style="{ padding: '0px' }">
-          <img :src="item.photo" class="image" height="300">
+          <img :src="item.path" class="image" height="300">
           <div style="padding: 14px;">
-            <span> {{ item.text }}</span>
+            <span> {{ item.title }}</span>
             <div class="bottom clearfix">
-              <el-button type="text" class="button" @click="navigateTo(item.text)">See the products</el-button>
+              <el-button type="text" class="button" @click="navigateTo('main.Category')">See the category</el-button>
             </div>
           </div>
         </el-card>
@@ -49,19 +49,12 @@
 
 <script>
 import router from '../router'
+import product from '../api/product.js'
 
 export default {
   data () {
     return {
       items: [
-        {photo: '../../static/1.jpg', text: 'Fashion'},
-        {photo: '../../static/2.jpg', text: 'Wearables'},
-        {photo: '../../static/3.jpg', text: 'Games'},
-        {photo: '../../static/4.jpg', text: 'Sport'},
-        {photo: '../../static/5.jpg', text: 'Collectibles'},
-        {photo: '../../static/6.jpg', text: 'Home'},
-        {photo: '../../static/7.jpg', text: 'Books'},
-        {photo: '../../static/8.jpg', text: 'Beauty'}
       ]
     }
   },
@@ -70,6 +63,19 @@ export default {
       console.log('==== navigate ====')
       router.push({ name: nav })
     }
+  },
+  mounted () {
+    console.log('========')
+    // app.items = product.getCategory()
+    // console.log(app.items)
+    // console.log('eiei')
+    product.getCategory(_response => {
+      console.log('1234567890')
+      this.items = _response
+      console.log(this.items)
+      console.log('098764321')
+    })
+    // console.log(product.x)
   }
 }
 </script>

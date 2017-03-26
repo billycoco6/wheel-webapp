@@ -18,7 +18,7 @@
         <div style="padding: 14px;">
           <span>Female</span>
           <div class="bottom clearfix">
-            <el-button type="text" class="button" @click="navigateTo('main.Women')">Go to Women sites</el-button>
+            <el-button type="text" class="button" @click="getCategory()">Go to Women sites</el-button>
           </div>
         </div>
       </el-card>
@@ -29,17 +29,19 @@
 
 <script>
 import router from '../router'
-
+import product from '../api/product.js'
 export default {
   data () {
     return {
-      currentDate: new Date()
     }
   },
   methods: {
     navigateTo (nav) {
       console.log('==== navigate ====')
       router.push({ name: nav })
+    },
+    getCategory () {
+      product.getCategory()
     }
   }
 }
