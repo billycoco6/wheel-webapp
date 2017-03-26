@@ -24,27 +24,32 @@ export default new Router({
     {
       path: '/home',
       name: 'main.Home',
-      component: Home
+      component: Home,
+      meta: { requiresAuth: true }
     },
     {
       path: '/men',
       name: 'main.Men',
-      component: Men
+      component: Men,
+      meta: { requiresAuth: true }
     },
     {
       path: '/women',
       name: 'main.Women',
-      component: Women
+      component: Women,
+      meta: { requiresAuth: true }
     },
     {
       path: '/category',
       name: 'main.Category',
-      component: Category
+      component: Category,
+      meta: { requiresAuth: true }
     },
     {
       path: '/spinning',
       name: 'main.Spinning',
-      component: Spinning
+      component: Spinning,
+      meta: { requiresAuth: true }
     }
   ]
 })

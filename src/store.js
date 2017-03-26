@@ -15,11 +15,17 @@ const mutations = {
   login (state) {
     console.log('mutations login')
     state.auth = true
+    console.log(state.auth)
     router.push({ name: 'main.Home' })
   },
   logout (state) {
     console.log('mutations logout')
     state.auth = false
+    console.log(state.auth)
+    console.log(localStorage.getItem('jwt'))
+    localStorage.setItem('jwt', null)
+    console.log(localStorage.getItem('jwt'))
+    console.log('end test')
     router.push({ name: 'main.SignIn' })
   }
 }

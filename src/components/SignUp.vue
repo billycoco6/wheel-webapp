@@ -21,7 +21,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="register()">Submit</el-button>
-          <el-button @click="navigateTo(main.SignIn)">Cancel</el-button>
+          <el-button @click="navigateTo('main.SignIn')">Cancel</el-button>
         </el-form-item>
       </el-form>
     </el-col>
@@ -45,11 +45,6 @@ export default {
     }
   },
   methods: {
-    submit () {
-      console.log('===== submit =====')
-      // make an api call to store user info
-      router.push({ name: 'main.SignIn' })
-    },
     navigateTo (nav) {
       router.push({ name: nav })
     },
